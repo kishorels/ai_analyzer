@@ -7,6 +7,7 @@ import {
   FileText,
   Loader2,
   Mail,
+  MessageSquare,
   Sparkles,
   Upload,
   User,
@@ -613,9 +614,9 @@ export default function ResumeAnalyzer() {
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
           text-align: center;
           padding: 10px;
+          overflow-y: auto;
         }
 
         .ra-success-icon,
@@ -628,6 +629,7 @@ export default function ResumeAnalyzer() {
           place-items: center;
           color: var(--aqua);
           background: var(--mint);
+          flex: 0 0 auto;
         }
 
         .ra-score-badge {
@@ -640,8 +642,8 @@ export default function ResumeAnalyzer() {
 
         .ra-score-badge b { display: block; font-size: 20px; line-height: 1; }
         .ra-score-badge span { color: var(--soft-text); display: block; font-size: 10px; font-weight: 800; margin-top: 3px; }
-        .ra-success h3 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(20px, 3vh, 27px); margin: 0 0 8px; }
-        .ra-success p { max-width: 480px; margin: 0 auto clamp(14px, 2.2vh, 20px); color: var(--muted); line-height: 1.65; font-size: clamp(13px, 1.6vh, 14.5px); }
+        .ra-success h3 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(20px, 3vh, 27px); margin: 0 0 8px; flex: 0 0 auto; }
+        .ra-success > p { max-width: 480px; margin: 0 auto clamp(14px, 2.2vh, 20px); color: var(--muted); line-height: 1.65; font-size: clamp(13px, 1.6vh, 14.5px); flex: 0 0 auto; }
         .email-tag { color: var(--blue); font-weight: 800; }
 
         .ra-again {
@@ -657,7 +659,98 @@ export default function ResumeAnalyzer() {
           font-weight: 800;
           font-size: 13.5px;
           padding: 0 17px;
+          flex: 0 0 auto;
         }
+
+        .ra-interview-section {
+          width: 100%;
+          max-width: 520px;
+          margin: clamp(16px, 2.4vh, 24px) auto 0;
+          text-align: left;
+          flex: 0 0 auto;
+        }
+
+        .ra-interview-header {
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          margin-bottom: clamp(10px, 1.6vh, 14px);
+          padding-bottom: 10px;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .ra-interview-header svg { color: var(--aqua); flex: 0 0 auto; }
+
+        .ra-interview-header h4 {
+          margin: 0;
+          font-size: 14px;
+          font-weight: 800;
+          color: var(--ink);
+        }
+
+        .ra-interview-header span {
+          color: var(--soft-text);
+          font-size: 11.5px;
+          font-weight: 700;
+        }
+
+        .ra-interview-list {
+          display: grid;
+          gap: 9px;
+        }
+
+        .ra-interview-q {
+          display: flex;
+          align-items: flex-start;
+          gap: 11px;
+          padding: 12px 14px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, rgba(220, 235, 255, 0.35), rgba(220, 246, 238, 0.3));
+          border: 1px solid rgba(225, 233, 244, 0.8);
+          transition: transform 0.14s ease, box-shadow 0.14s ease;
+        }
+
+        .ra-interview-q:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 8px 20px rgba(22, 32, 58, 0.06);
+        }
+
+        .ra-q-num {
+          display: inline-grid;
+          place-items: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 8px;
+          color: var(--blue);
+          background: var(--sky);
+          font-size: 11px;
+          font-weight: 800;
+          flex: 0 0 auto;
+          margin-top: 1px;
+        }
+
+        .ra-q-text {
+          flex: 1;
+          font-size: 13.5px;
+          font-weight: 600;
+          line-height: 1.5;
+          color: var(--ink);
+        }
+
+        .ra-q-category {
+          display: inline-block;
+          margin-top: 5px;
+          padding: 3px 8px;
+          border-radius: 6px;
+          font-size: 10.5px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.03em;
+        }
+
+        .ra-q-category.behavioral { color: #0c7273; background: rgba(220, 246, 238, 0.8); }
+        .ra-q-category.technical { color: var(--blue); background: rgba(220, 235, 255, 0.8); }
+        .ra-q-category.situational { color: #b35c00; background: rgba(255, 232, 219, 0.8); }
 
         @keyframes spin {
           from { transform: rotate(0deg); }
@@ -877,7 +970,7 @@ export default function ResumeAnalyzer() {
             <span>ResumeMatch AI</span>
           </div>
           <div className="ra-header-badge">
-            <Sparkles size={13} /> AI-powered career analysis
+            <Sparkles size={13} /> Developed By Kishore L M
           </div>
         </header>
 
@@ -885,14 +978,15 @@ export default function ResumeAnalyzer() {
           <div className="ra-hero">
             <div>
               <p className="ra-eyebrow">
-                <Sparkles size={14} /> Resume + job fit checker
+                <Sparkles size={14} /> Smart resume analysis
               </p>
               <h1 className="ra-title">
                 Make every application feel <em>tailor-made.</em>
               </h1>
               <p className="ra-sub">
-                Upload your resume, paste the job description, and get an AI review that highlights
-                your fit, missing skills, grammar polish, and a ready-to-send cover letter.
+                Upload your resume, paste the job description, and let AI do the rest.
+                Get a fit score, skill gap analysis, grammar review, a ready-to-send
+                cover letter, and sample interview questions — all in one report.
               </p>
               <div className="ra-hero-actions">
                 <a className="ra-primary-link" href="#analysis-form">
@@ -937,7 +1031,7 @@ export default function ResumeAnalyzer() {
                 <div className="ra-mini-cards">
                   <div className="ra-mini-card"><span>Fit</span>Score</div>
                   <div className="ra-mini-card"><span>Skill</span>Gaps</div>
-                  <div className="ra-mini-card"><span>Cover</span>Letter</div>
+                  <div className="ra-mini-card"><span>Interview</span>Prep</div>
                 </div>
               </div>
             </aside>
@@ -958,14 +1052,61 @@ export default function ResumeAnalyzer() {
                     <CheckCircle2 size={28} />
                   </div>
                 )}
-                <h3>Sent for analysis</h3>
+                <h3>Your report is on its way</h3>
                 <p>
-                  Your full report is on its way to <span className="email-tag">{form.email}</span>.
-                  It includes a match score, skill gaps, grammar notes, and a drafted cover letter.
+                  A detailed analysis has been sent to <span className="email-tag">{form.email}</span> —
+                  including your match score, skill gaps, grammar review, cover letter, and interview prep.
                 </p>
                 <button className="ra-again" onClick={reset}>
                   Analyze another role <ArrowRight size={14} />
                 </button>
+
+                <div className="ra-interview-section">
+                  <div className="ra-interview-header">
+                    <MessageSquare size={16} />
+                    <div>
+                      <h4>Sample interview questions</h4>
+                      <span>Prepare for these based on the job description</span>
+                    </div>
+                  </div>
+                  <div className="ra-interview-list">
+                    <div className="ra-interview-q">
+                      <span className="ra-q-num">1</span>
+                      <div>
+                        <div className="ra-q-text">{preview?.interviewQuestions?.[0] || `Tell me about a time you solved a complex problem in your role as a ${form.jobTitle || 'professional'}.`}</div>
+                        <span className="ra-q-category behavioral">Behavioral</span>
+                      </div>
+                    </div>
+                    <div className="ra-interview-q">
+                      <span className="ra-q-num">2</span>
+                      <div>
+                        <div className="ra-q-text">{preview?.interviewQuestions?.[1] || `What relevant skills and experience make you the right fit for this ${form.jobTitle || 'position'}?`}</div>
+                        <span className="ra-q-category technical">Technical</span>
+                      </div>
+                    </div>
+                    <div className="ra-interview-q">
+                      <span className="ra-q-num">3</span>
+                      <div>
+                        <div className="ra-q-text">{preview?.interviewQuestions?.[2] || `How would you handle a situation where project requirements changed midway through delivery?`}</div>
+                        <span className="ra-q-category situational">Situational</span>
+                      </div>
+                    </div>
+                    <div className="ra-interview-q">
+                      <span className="ra-q-num">4</span>
+                      <div>
+                        <div className="ra-q-text">{preview?.interviewQuestions?.[3] || `Describe how you stay current with industry trends and continue to grow professionally.`}</div>
+                        <span className="ra-q-category behavioral">Behavioral</span>
+                      </div>
+                    </div>
+                    <div className="ra-interview-q">
+                      <span className="ra-q-num">5</span>
+                      <div>
+                        <div className="ra-q-text">{preview?.interviewQuestions?.[4] || `Walk us through a project where you collaborated across teams to deliver results.`}</div>
+                        <span className="ra-q-category situational">Situational</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             ) : (
               <>
