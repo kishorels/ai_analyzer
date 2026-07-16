@@ -1061,52 +1061,6 @@ export default function ResumeAnalyzer() {
                   Analyze another role <ArrowRight size={14} />
                 </button>
 
-                <div className="ra-interview-section">
-                  <div className="ra-interview-header">
-                    <MessageSquare size={16} />
-                    <div>
-                      <h4>Sample interview questions</h4>
-                      <span>Prepare for these based on the job description</span>
-                    </div>
-                  </div>
-                  <div className="ra-interview-list">
-                    <div className="ra-interview-q">
-                      <span className="ra-q-num">1</span>
-                      <div>
-                        <div className="ra-q-text">{preview?.interviewQuestions?.[0] || `Tell me about a time you solved a complex problem in your role as a ${form.jobTitle || 'professional'}.`}</div>
-                        <span className="ra-q-category behavioral">Behavioral</span>
-                      </div>
-                    </div>
-                    <div className="ra-interview-q">
-                      <span className="ra-q-num">2</span>
-                      <div>
-                        <div className="ra-q-text">{preview?.interviewQuestions?.[1] || `What relevant skills and experience make you the right fit for this ${form.jobTitle || 'position'}?`}</div>
-                        <span className="ra-q-category technical">Technical</span>
-                      </div>
-                    </div>
-                    <div className="ra-interview-q">
-                      <span className="ra-q-num">3</span>
-                      <div>
-                        <div className="ra-q-text">{preview?.interviewQuestions?.[2] || `How would you handle a situation where project requirements changed midway through delivery?`}</div>
-                        <span className="ra-q-category situational">Situational</span>
-                      </div>
-                    </div>
-                    <div className="ra-interview-q">
-                      <span className="ra-q-num">4</span>
-                      <div>
-                        <div className="ra-q-text">{preview?.interviewQuestions?.[3] || `Describe how you stay current with industry trends and continue to grow professionally.`}</div>
-                        <span className="ra-q-category behavioral">Behavioral</span>
-                      </div>
-                    </div>
-                    <div className="ra-interview-q">
-                      <span className="ra-q-num">5</span>
-                      <div>
-                        <div className="ra-q-text">{preview?.interviewQuestions?.[4] || `Walk us through a project where you collaborated across teams to deliver results.`}</div>
-                        <span className="ra-q-category situational">Situational</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             ) : (
               <>
