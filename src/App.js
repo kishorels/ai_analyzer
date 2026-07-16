@@ -980,7 +980,7 @@ export default function ResumeAnalyzer() {
                 <Sparkles size={14} /> Smart resume analysis
               </p>
               <h1 className="ra-title">
-                Make every application feel <em>tailor-made.</em>
+                Match your resume to <em>any job.</em>
               </h1>
               <p className="ra-sub">
                 Upload your resume, paste the job description, and let AI do the rest.
