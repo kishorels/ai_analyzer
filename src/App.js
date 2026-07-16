@@ -7,7 +7,6 @@ import {
   FileText,
   Loader2,
   Mail,
-  MessageSquare,
   Sparkles,
   Upload,
   User,
